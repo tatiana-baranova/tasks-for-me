@@ -1,3 +1,5 @@
+///  Lesson 1///
+
 // const user = {
 //     userName: "Alice",
 //     showThis() {
@@ -182,3 +184,171 @@
 // builder.padBoth("=");
 // console.log(builder.getValue()); // "=^.^="
 
+
+
+// function showThis(a, b, arr) {
+//     console.log(a, b, arr);
+    
+//     console.log("this", this);
+// }
+
+// const objA = {
+//     a: 5,
+//     b: 10
+// }
+
+// const objB = {
+//     x: 100,
+//     y: 150
+// }
+// метод call(метод функції для привязування this контексту)
+// showThis.call(objA, 5, "lololo", [1, 5, 15]);
+
+// метод apply, спосіб передавання все в одному масиві. метод функції.
+// showThis.apply(objB, [10, "lolulo", [5, 10, 15]]);
+
+
+
+// зміна кольору за допомогою привязки this контекста
+
+// function changeColor(color) {
+//     console.log("this", this);
+//     this.color = color;
+    
+// }
+
+// const hat = {
+//     color: "black"
+// }
+
+// const sweater = {
+//     color: "green"
+// }
+
+// changeColor.call(hat, "red")
+// console.log("hat", hat);
+
+// changeColor.apply(sweater, ["blue"])
+// console.log(sweater);
+
+// метод повертає з привязаним контекстом у минулому
+// const changeHatColor = changeColor.bind(hat);
+// changeHatColor("red")
+// console.log(hat);
+
+// const changeSweaterColor = changeColor.bind(hat);
+// changeSweaterColor("red");
+// console.log(hat);
+
+// const counter = {
+//     value: 0,
+//     increment(num) {
+//         console.log("increment", this);
+//         this.value += num;
+//     },
+//     decrement(num) {
+//         console.log("decrement", this);
+//         this.value -= num;
+//     }
+// }
+
+// function updateCounter(value, callback) {
+//     callback(value)
+
+// }
+// // ////////////////////////////привязує і повертає
+// updateCounter(10, counter.increment.bind(counter));
+// updateCounter(1, counter.decrement.bind(counter));
+// console.log(counter);
+
+
+
+// Прототипи об"єкта Object.create(animal)
+//////////////////////////////////prototyp
+
+// const animal = {
+//     legs: 4
+// }
+// const dog = Object.create(animal);
+// dog.name = "Sharik";
+// console.log(dog.legs);
+// console.log(dog.name);
+
+// Визначення чія властивість, своя чи прототипа
+///                               //false//
+// console.log(dog.hasOwnProperty("legs"));
+///                             //true//
+// console.log(dog.hasOwnProperty("name"));
+
+/////////фільтрування власних ключів
+// for (const key in dog) {
+//     if (dog.hasOwnProperty(key)) {
+//         console.log(key);
+//     }
+// }
+//////коротший спосіб витягнути власну властивість
+// const keys = Object.keys(dog);
+// console.log(keys);
+
+
+// Задача, написати програмне забезпечення для автомобілів зменшення та збільшення швидкості
+
+// const cruiseControl = {
+//     speed: 0,
+//     brand: "Audi",
+//     accelerate() {
+//         this.speed += 10
+//         console.log(`Автомобіль ${this.brand} прискориться, швидкість ${this.speed} `);
+//     },
+//     decrease() {
+//         if (this.speed <= 0) {
+//             console.log("Авто зупинилося");
+//             return;
+//         }
+//         this.speed -= 10;
+//         console.log(`Автомобіль ${this.brand} гальмує, швидкість ${this.speed}`);
+        
+//     }
+// }
+// cruiseControl.accelerate();
+// cruiseControl.accelerate();
+
+// cruiseControl.decrease();
+// cruiseControl.decrease();
+// cruiseControl.decrease();
+
+
+
+////////
+// Створити функціонал для контролю швидкості
+
+// const SPEED = 60;
+
+// const bmw = {
+//     brand: "bmw",
+//     speed: 70
+// }
+// const audi = {
+//     brand: "audi",
+//     speed: 30
+// }
+
+// function speedSensor(maxSpeed) {
+//     console.log(this);
+
+    // через тернарний оператор////
+    // return this.speed <= maxSpeed ? `Автомобіль ${this.brand} рухається з безпечною швидкістю` : `${this.brand} перевищує швидкість`
+
+    //через if///
+    // if (this.speed <= maxSpeed) {
+    //     return `Автомобіль ${this.brand} рухається з безпечною швидкістю`;
+    // }
+    
+    // return `${this.brand} перевищує швидкість`;
+// }
+// console.log(speedSensor.call(bmw, SPEED));
+// console.log(speedSensor.call(audi, SPEED));
+
+
+
+// Lesson 2 //
