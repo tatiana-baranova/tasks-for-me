@@ -425,3 +425,53 @@
 
 // console.log(Car.qty);
     
+
+// console.log();
+
+
+// function result(number) {
+//     return number <= 10 ? true : false;
+// }
+// console.log(result(55));
+
+
+
+///////створити клас User/////
+// class User {
+//     #login;
+//     #email;
+
+//     constructor(obj) {
+//         this.#login = obj.login;
+//         this.#email = obj.email;
+// }
+//     get login() {
+//         return this.#login;
+//     }
+    
+//     set login(newLogin) {
+//         if (!newLogin) {
+//             console.log("invalid data");
+//             return;
+//         }
+//         this.#login = newLogin;
+//     }
+
+//     get email() {
+//         return this.#email;
+//     }
+//     set email(newEmail) {
+//         this.#email = newEmail;
+//     }
+
+// }
+
+// const alice = new User({ login: "Alice", email: "alice@gmail.com" })
+
+// console.log("alice", alice);
+
+// const yura = new User({ login: "Yura", email: "yura@gmail.com" });
+// console.log("yura", yura);
+
+// yura.email = "superyura@gmail.com";
+// console.log("yura", yura.email);
