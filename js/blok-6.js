@@ -352,3 +352,76 @@
 
 
 // Lesson 2 //
+// Клас
+// class Car {
+//     // приватна властивість #
+//     #price;
+
+//     static qty = 0;
+//     static increment() {
+//         Car.qty += 1;  //Статичний метод
+//     }
+
+//     constructor(obj = {}) {
+//         this.brand = obj.brand;
+//         this.modal = obj.modal;
+//         this.#price = obj.price;
+//         Car.increment()  ///Статичний метод класу, доступний лише класу.
+//     }
+
+//     getModel() {
+//         return this.modal;
+//     }
+//     updatePrice() {
+//         this.#price += 1000;
+//     }
+//     getPrice() {
+//         return this.#price;
+//     }
+
+//     get price() {
+//         return this.#price;
+//     }
+//     set price(newPrice) {
+//         if (this.#checkType(newPrice, "number")) {
+//             this.#price = newPrice;
+//             return;
+//         }
+//         console.log("Invalid data");
+//     }
+
+//     /////Приватний метод...(для внутрішніх взаємодій)
+//     #checkType(data, type) {
+//         if(typeof data !== type) {
+//             return false
+//         } else {
+//             return true;
+//         }
+//     }
+// }
+// const bmw = new Car({
+//     brand: "BMW",
+//     modal: "X7",
+//     price: 70000
+// });
+// const bmw1 = new Car({
+//     brand: "BMW",
+//     modal: "X7",
+//     price: 65000
+// });
+// const bmw2 = new Car({
+//     brand: "BMW",
+//     modal: "X7",
+//     price: 65000
+// });
+// // // bmw.updatePrice()
+// // // console.log("bmw", bmw.getPrice());
+
+// // console.log(bmw.price);///не ставимо при виклику get круглих дужок
+
+// // //виклик set
+// // bmw.price = 75000;
+// // console.log(bmw.price);
+
+// console.log(Car.qty);
+    
