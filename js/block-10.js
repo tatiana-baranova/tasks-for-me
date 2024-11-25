@@ -68,54 +68,57 @@ const clockFace = document.querySelector(".clock-face");
 //     clockFace.textContent = `${hours}:${mins}:${secs}`;
 // }
 
-let isActive = false;
-let intervalId = null;
 
-startBtn.addEventListener("click", start);
-stopBtn.addEventListener("click", stop)
 
-init();
 
-function start() {
+// let isActive = false;
+// let intervalId = null;
 
-    if (isActive) {
-        return;
-    }
+// startBtn.addEventListener("click", start);
+// stopBtn.addEventListener("click", stop)
 
-    const startTime = Date.now();
-    isActive = true;
+// init();
 
-    intervalId = setInterval(() => {
-        const currentTime = Date.now();
-        const deltaTime = currentTime - startTime;
-        const time = getTimeComponent(deltaTime);
+// function start() {
 
-        onTick(time);
-    }, 1000)
-}
-function getTimeComponent(time) {
-        const hours = pad(Math.floor((time % (1000 * 60 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-        const mins = pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
-        const secs = pad(Math.floor((time % (1000 * 60)) / 1000));
+//     if (isActive) {
+//         return;
+//     }
 
-        return { hours, mins, secs };
-}
-function pad(value) {
-        return String(value).padStart(2, "0");
-}
+//     const startTime = Date.now();
+//     isActive = true;
+
+//     intervalId = setInterval(() => {
+//         const currentTime = Date.now();
+//         const deltaTime = currentTime - startTime;
+//         const time = getTimeComponent(deltaTime);
+
+//         onTick(time);
+//     }, 1000)
+// }
+// function getTimeComponent(time) {
+//         const hours = pad(Math.floor((time % (1000 * 60 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+//         const mins = pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
+//         const secs = pad(Math.floor((time % (1000 * 60)) / 1000));
+
+//         return { hours, mins, secs };
+// }
+// function pad(value) {
+//         return String(value).padStart(2, "0");
+// }
     
-function onTick({ hours, mins, secs }) {
-    clockFace.textContent = `${hours}:${mins}:${secs}`;
-}
+// function onTick({ hours, mins, secs }) {
+//     clockFace.textContent = `${hours}:${mins}:${secs}`;
+// }
 
-function stop() {
-        clearInterval(intervalId);
-        const time = getTimeComponent(0);
-        onTick(time);
-        isActive = false;
-    }
+// function stop() {
+//         clearInterval(intervalId);
+//         const time = getTimeComponent(0);
+//         onTick(time);
+//         isActive = false;
+//     }
 
-function init() {
-        const time = getTimeComponent(0);
-        onTick(time);
-    }
+// function init() {
+//         const time = getTimeComponent(0);
+//         onTick(time);
+//     }
