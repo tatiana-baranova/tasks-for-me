@@ -270,51 +270,51 @@
 ///Task//
 
 
-const startBtns = document.querySelector(".start-btn");
-const container = document.querySelector(".container");
-const result = document.querySelector(".result")
+// const startBtns = document.querySelector(".start-btn");
+// const container = document.querySelector(".container");
+// const result = document.querySelector(".result")
 
-startBtns.addEventListener("click", handleStart);
+// startBtns.addEventListener("click", handleStart);
 
-function handleStart() {
-    result.innerHTML = "";
-    startBtns.disabled = true;
-    const promises = [...container.children].map(() => {
-        return new Promise((resolve, reject) => {
+// function handleStart() {
+//     result.innerHTML = "";
+//     startBtns.disabled = true;
+//     const promises = [...container.children].map(() => {
+//         return new Promise((resolve, reject) => {
 
-            const random = Math.random();
+//             const random = Math.random();
 
-            if (random > 0.5) {
-                resolve("🤑");
-            } else {
-                reject("😈");
-            }
-        })
-    })
+//             if (random > 0.5) {
+//                 resolve("🤑");
+//             } else {
+//                 reject("😈");
+//             }
+//         })
+//     })
 
-    // console.log(promises);
+//     // console.log(promises);
 
-    Promise.allSettled(promises)
-        .then(items => {
+//     Promise.allSettled(promises)
+//         .then(items => {
 
-            const isWinner =
-                items.every((item) => item.status === "fulfilled") || items.every((item) => item.status === "rejected")
+//             const isWinner =
+//                 items.every((item) => item.status === "fulfilled") || items.every((item) => item.status === "rejected")
             
-            items.forEach((item, i) => {
-                container.children[i].textContent = "";
+//             items.forEach((item, i) => {
+//                 container.children[i].textContent = "";
 
-                setTimeout(() => {
-                    container.children[i].textContent = item.value || item.reason;
+//                 setTimeout(() => {
+//                     container.children[i].textContent = item.value || item.reason;
 
-                    if (i === items.length - 1) {
-                        result.innerHTML = isWinner ? "Winner" : "Loser";
-                        startBtns.disabled = false;
-                    }
-                }, 1000 * (i + 1))
-            })
+//                     if (i === items.length - 1) {
+//                         result.innerHTML = isWinner ? "Winner" : "Loser";
+//                         startBtns.disabled = false;
+//                     }
+//                 }, 1000 * (i + 1))
+//             })
             
-        })
-}
+//         })
+// }
 
 
 
